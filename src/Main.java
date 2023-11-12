@@ -5,6 +5,7 @@ import java.io.StringReader;
 
 public class Main {
     public static double maxPercent;
+
     public static void main(String[] args) throws Exception {
         Validation validation = new Validation();
         Money money = new Money();
@@ -14,16 +15,10 @@ public class Main {
                 + "\n2.  Убедительная просьба год вводить полностью цифрами, без проблелов." +
                 "\n2.1 Например: \"2002\".");
         String inputYear = reader.readLine();
-        //проверяем что ввёл юзер.
         validation.okOrNot(inputYear);
-        //Если валидация пройдена - задаём значение введённое пользователем как стартовый год.
         money.setParams(Integer.parseInt(inputYear));
-        //Высчитываем максимальный %
         money.maxPercentChange();
 
 
-
-
-
     }
-    }
+}

@@ -1,5 +1,6 @@
 public class Validation {
     private String regex = "\\d+";
+
     void okOrNot(String year) throws Exception {
         // проверяем что строка не пустая.
         if (year == null || year.length() == 0) {

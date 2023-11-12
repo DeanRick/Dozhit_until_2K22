@@ -2,29 +2,20 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Years {
-    private final int MINIMAL_YEAR = 2002; // минимальный стартовый год.
-    private int startYear; // год, в который пользователь решил выйти на пенсию.
+    private final int MINIMAL_YEAR = 2002;
+    private int startYear;
+    private double startYearMOEX;
+    private final int FINAL_YEAR = 2022;
 
-    //private double startYearInflation; // инфляция в стартовый год.
-    private double startYearMOEX; // индекс биржи в стартовый год.
-    private final int FINAL_YEAR = 2022; // год окончания пенсии, не включается в расчёты суммы.
+    private int yearsCount;
 
-    private int yearsCount; // количество годиков в диапазоне заданных констант MINIMAL_YEAR и FINAL_YEAR.
+    private int startYearArrayIndex;
 
-    private int startYearArrayIndex; // нужно чтобы дёргать из Constans значения за нужные года.
-
-
-
-    public int getMINIMAL_YEAR() {
-        return MINIMAL_YEAR;
-    }
-    public int getFINAL_YEAR() {
-        return FINAL_YEAR;
-    }
-    public int getYearArrayIndex(){
+    public int getYearArrayIndex() {
         return startYearArrayIndex;
     }
-    public int getYearsCount(){
+
+    public int getYearsCount() {
         return yearsCount;
     }
 
@@ -35,14 +26,15 @@ public class Years {
     public void setStartYear(int year) {
         startYear = year;
     }
-    public int getStartYear(){
-        return startYear;
-    }
 
-    public void startYearParamSet () {
-        if((FINAL_YEAR - MINIMAL_YEAR) - (FINAL_YEAR - startYear) != 0 ) {
-            startYearArrayIndex = (FINAL_YEAR - MINIMAL_YEAR) - (FINAL_YEAR - startYear) - 1;
-        } else startYearArrayIndex = (FINAL_YEAR - MINIMAL_YEAR) - (FINAL_YEAR - startYear);
+    public void startYearParamSet() {
+        int yrsCnt = FINAL_YEAR - MINIMAL_YEAR;
+        int yrsDiff = FINAL_YEAR - startYear;
+
+        if (yrsCnt - yrsDiff != 0) {
+            startYearArrayIndex = yrsCnt - yrsDiff - 1;
+        } else startYearArrayIndex = yrsCnt - yrsDiff;
+
         startYearMOEX = Constants.MOEX_RATE[startYearArrayIndex];
         yearsCount = FINAL_YEAR - MINIMAL_YEAR;
     }
