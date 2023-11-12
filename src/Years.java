@@ -6,9 +6,7 @@ public class Years {
     private int startYear;
     private double startYearMOEX;
     private final int FINAL_YEAR = 2022;
-
     private int yearsCount;
-
     private int startYearArrayIndex;
 
     public int getYearArrayIndex() {

@@ -17,31 +17,30 @@ public class Money {
     public void maxPercentChange() {
 
         double startCapital = years.getStartYearMOEX();
-        double capitalСhange = 0;
+        double capitalChange = 0;
         double startPercentUp = 0;
-
 
         for (int i = years.getYearArrayIndex(); i < years.getYearsCount() - 1; i++) {
             double coeffThisYear = Constants.MOEX_RATE[i] / Constants.MOEX_RATE[years.getYearArrayIndex()];
             double coeffNextYear = Constants.MOEX_RATE[i + 1] / Constants.MOEX_RATE[years.getYearArrayIndex()];
             if (i == years.getYearArrayIndex()) {
-                capitalСhange = Constants.MOEX_RATE[years.getYearArrayIndex()];
+                capitalChange = Constants.MOEX_RATE[years.getYearArrayIndex()];
                 startPercentUp = startPercent;
             }
 
-            capitalСhange = capitalСhange - (startCapital * startPercentUp);
+            capitalChange = capitalChange - (startCapital * startPercentUp);
 
-            if (capitalСhange < 0 && fullCycle >= 1) {
+            if (capitalChange < 0 && fullCycle >= 1) {
                 Main.maxPercent = startPercent - 0.005;
                 System.out.println("Максимальный % изъятия = " + String.format("%.1f", Main.maxPercent * 100));
                 break;
             }
 
-            capitalСhange = capitalСhange / coeffThisYear * coeffNextYear;
-            startPercentUp = startPercentUp + (startPercentUp * (Constants.INFLATION_RATE[i] / 100));
+            capitalChange = capitalChange / coeffThisYear * coeffNextYear;
+            startPercentUp = startPercentUp + (startPercentUp
+                                                * (Constants.INFLATION_RATE[i] / 100));
 
-
-            if (capitalСhange > 0 && i == years.getYearsCount() - 2) {
+            if (capitalChange > 0 && i == years.getYearsCount() - 2) {
                 fullCycle++;
                 stillAlive();
                 break;

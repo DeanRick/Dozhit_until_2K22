@@ -1,9 +1,9 @@
 public class Validation {
-    private String regex = "\\d+";
 
     void okOrNot(String year) throws Exception {
+        String regex = "\\d+";
 
-        if (year == null || year.length() == 0) {
+        if (year == null || year.isEmpty()) {
             throw new Exception("Вы ничего не ввели. Введите год начала пенсии.");
         }
 
