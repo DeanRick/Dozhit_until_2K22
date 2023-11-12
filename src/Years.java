@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class Years {
     private final int MINIMAL_YEAR = 2002;
     private int startYear;
