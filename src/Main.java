@@ -11,7 +11,8 @@ public class Main {
         Money money = new Money();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Привет!" + '\n' + "1.  Введи год от 2002 до 2021, с которого хочешь чиллить, и я расскажу тебе сколько нужно снимать в % чтобы не жрать дошик."
+        System.out.println("Привет!" + '\n' + "1.  Введи год от 2002 до 2021, с которого хочешь чиллить, " +
+                "и я расскажу тебе сколько нужно снимать в % чтобы не жрать дошик."
                 + "\n2.  Убедительная просьба год вводить полностью цифрами, без проблелов." +
                 "\n2.1 Например: \"2002\".");
         String inputYear = reader.readLine();
