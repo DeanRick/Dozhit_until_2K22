@@ -4,11 +4,6 @@ public class Money {
     private double startPercent = 0.005;
     int fullCycle = 0;
 
-    private void stillAlive() {
-        startPercent += 0.005;
-        maxPercentChange();
-    }
-
     public void setParams(int year) {
         years.setStartYear(year);
         years.startYearParamSet();
@@ -42,8 +37,10 @@ public class Money {
 
             if (capitalChange > 0 && i == years.getYearsCount() - 2) {
                 fullCycle++;
-                stillAlive();
-                break;
+                startPercent += 0.005;
+                i = years.getYearArrayIndex()-1;
+                startPercentUp = 0;
+                capitalChange = 0;
             }
         }
 
