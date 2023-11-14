@@ -2,7 +2,7 @@ public class Money {
 
     Years years = new Years();
     private double startPercent = 0.005;
-    int fullCycle = 0;
+
 
     public void setParams(int year) {
         years.setStartYear(year);
@@ -11,6 +11,7 @@ public class Money {
 
     public void maxPercentChange() {
 
+        int fullCycle = 0;
         double startCapital = years.getStartYearMOEX();
         double capitalChange = 0;
         double startPercentUp = 0;
